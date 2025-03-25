@@ -11,7 +11,7 @@ trait ApiResponser
      *
      * @param string|array $data
      * @param int $code
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\Response
      */
     public function successResponse($data, $code = Response::HTTP_OK)
     {
@@ -35,7 +35,7 @@ trait ApiResponser
      *
      * @param string $message
      * @param int $code
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\Response
      */
     public function errorMessage($message, $code)
     { 

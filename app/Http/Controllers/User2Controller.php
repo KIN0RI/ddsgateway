@@ -26,13 +26,18 @@ Class User2Controller extends Controller {
     * @param User2Service $user2Service
     */
     public function __construct(User2Service $user2Service){
-    $this->user1Service = $user2Service;
+    $this->user2Service = $user2Service;
     }   
     
 
-
-
-
+    /**
+     * Return the list of users
+     * @return Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return $this->successResponse($this->user2Service->obtainUsers2());
+    }
 
 
 
@@ -49,10 +54,7 @@ Class User2Controller extends Controller {
 
     }
 
-    public function index()
-    {
-        
-    }
+    
 
     public function add(Request $request ){
         

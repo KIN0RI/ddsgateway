@@ -22,4 +22,13 @@ class User2Service
     {
         $this->baseUri = config('services.users2.base_uri');
     }
+
+    /**
+     * Obtain the full list of Users from User2 Site
+     * @return string
+     */
+    public function obtainUsers2() 
+    {
+        return $this->performRequest('GET', '/users');
+    }
 }
