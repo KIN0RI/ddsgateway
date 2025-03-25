@@ -60,5 +60,11 @@ class User1Service
         
     }
 
+    public function deleteUser1($id)
+    {
+        return $this->performRequest('DELETE', "/users/{$id}");
+    }
+
+
 
 }

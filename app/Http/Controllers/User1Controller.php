@@ -56,16 +56,14 @@ Class User1Controller extends Controller {
 
     public function update(Request $request,$id)
     {
-        return response()->json(
-            $this->user1Service->editUser1($request->all(), $id),
-            200
+        return $this->successResponse($this->user1Service->editUser1($request->all(), $id)
         );
         
     }
 
     public function delete($id)
     {
-       
+        return $this->successResponse($this->user1Service->deleteUser1($id));
 
     }
 }
