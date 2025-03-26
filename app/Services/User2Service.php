@@ -9,7 +9,7 @@ class User2Service
     use ConsumesExternalService;
 
     /**
-     * The base URI to consume the User1 Service
+     * The base URI to consume the User2 Service
      *
      * @var string
      */
@@ -31,4 +31,40 @@ class User2Service
     {
         return $this->performRequest('GET', '/users');
     }
+
+    /**
+     * Create one user using the User2 service
+     * @return string
+     */
+    public function createUser2($data)
+    {
+        return $this->performRequest('POST', '/users', $data);
+    }
+
+    /**
+     * Obtain one single user from the User1 service
+     * @return string
+     */
+    public function obtainUser2($id)
+    {
+        return $this->performRequest('GET', "/users/{$id}");
+    }
+
+    /**
+     * Update an instance of user2 using the User1 service
+     * @return string
+     */
+    public function editUser2($data, $id)
+    {
+        return $this->performRequest('PUT', "/users/{$id}", $data);
+        
+    }
+
+    public function deleteUser2($id)
+    {
+        return $this->performRequest('DELETE', "/users/{$id}");
+    }
+
+
+
 }
