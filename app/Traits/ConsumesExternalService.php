@@ -7,18 +7,14 @@ use GuzzleHttp\Client;
 
 trait ConsumesExternalService
 {
-    /**
-     * Send a request to any service
-     *
-     * @param string $method HTTP method (GET, POST, etc.)
-     * @param string $requestUrl The endpoint URL
-     * @param array $form_params (Optional) Form parameters
-     * @param array $headers (Optional) Headers for the request
-     * @return string Response body content
-     */
     public function performRequest($method, $requestUrl, $form_params = [], $headers = [])
     {
     $client = new Client(['base_uri' => $this->baseUri]);
+
+    
+    if (isset($this->secret)) {
+        $headers['Authorization'] = $this->secret;
+    }
 
     $response = $client->request($method, $requestUrl, [
         'form_params' => $form_params,
